@@ -38,7 +38,10 @@ int main()
             }
         }
         else
+        {   
+            bubbleSort(head);
             break;
+        }
 	}
 
 	Print(head);

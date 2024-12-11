@@ -99,3 +99,34 @@ bool isPalindrome(int x)
     }
     return x == reversedNumber || x == reversedNumber / 10;
 }
+
+void bubbleSort(Node* head)
+{
+    if (head == nullptr || head->next == nullptr) return;
+
+    bool swapped;
+    do {
+        swapped = false;
+        Node* p = head->next;  // Начинаем с начала списка
+        
+        while (p->next != nullptr)
+        {
+            int k = p->data;
+            while(k > 9)
+            {
+                k /= 10;
+            }  
+            int k1 = p->next->data;
+            while(k1 > 9)
+            {
+                k1 /= 10;
+            }
+            if (k > k1) 
+            {
+                std::swap(p->data, p->next->data);
+                swapped = true;
+            }
+            p = p->next;
+        }
+    } while (swapped);
+}
